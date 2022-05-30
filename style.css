@@ -49,16 +49,37 @@ section {
     justify-content: center;
     box-sizing: content-box;
     height: 100vh;
-    min-height: 900px;
     width: 100%;
     padding-top: 60px;
 }
+
+#skills {
+    min-height: 660px;
+}
+
+@media (max-width:900px){
+    #skills {
+        min-height: 930px;
+    }
+}
+
+#portfolio {
+    min-height: 920px;
+}
+
+@media (max-width:860px){
+    #portfolio {
+        min-height: 1600px;
+    }
+}
+
+
 
 .content {
     width: 100%;
     max-width: var(--content-max-width);
     min-width: var(--context-min-width);
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .nav-bar {
