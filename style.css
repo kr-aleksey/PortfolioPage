@@ -4,8 +4,8 @@
     --bg-dark-color: rgb(27, 31, 36);
     --bg-light-color: rgb(34, 39, 47);
     --text-color: #fff;
-    --content-max-width: 1200px;
-    --context-min-width: 600px;
+    --content-max-width: 1100px;
+    --context-min-width: 800px;
 }
 
 * {
@@ -15,6 +15,8 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    min-width: var(--context-min-width);
 }
 
 body {
@@ -44,48 +46,12 @@ a {
     text-decoration: none;
 }
 
-section {
-    display: flex;
-    justify-content: center;
-    box-sizing: content-box;
-    height: 100vh;
-    width: 100%;
-    padding-top: 60px;
-}
-
-#skills {
-    min-height: 660px;
-}
-
-@media (max-width:900px){
-    #skills {
-        min-height: 930px;
-    }
-}
-
-#portfolio {
-    min-height: 920px;
-}
-
-@media (max-width:860px){
-    #portfolio {
-        min-height: 1600px;
-    }
-}
-
-
-
-.content {
-    width: 100%;
-    max-width: var(--content-max-width);
-    min-width: var(--context-min-width);
-    /* border: 1px solid red; */
-}
+/* nav */
 
 .nav-bar {
     height: 45px;
     width: 100%;
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 100;
     display: flex;
@@ -106,12 +72,42 @@ section {
     font-size: 1.1em;
 }
 
+.page-header {
+    margin: 1em 0 0.5em 2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+/* main */
+
 main {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 380px;
+}
+
+.content {
+    width: 100%;
+    max-width: var(--content-max-width);
+    min-width: var(--context-min-width);
+}
+
+#skills, #contact {
+    background-color: var(--bg-light-color);
+}
+
+/* welcome section */
+
+#welcome-section .content {
+    height: 100%;
 }
 
 .about {
@@ -120,7 +116,6 @@ main {
     left: 20%;
     min-width: 15em;
     max-width: 30em;
-    /* border: 1px solid blueviolet; */
 }
 
 .about-me {
@@ -129,23 +124,32 @@ main {
     left: 50%;
     max-width: 23em;
     min-width: 15em;
-    /* border: 1px solid blueviolet; */
 }
 
-.page-header {
-    margin-top: 1em;
-    margin-bottom: 0.5em;
+.top-line {
+    width: 100%;
+    max-width: 150px;
+    min-height: 8px;
+    margin-bottom: 24px;
+    background-color: var(--text-color);
 }
 
-.flex-box {
+/* skills section */
+
+#skills {
+    min-height: 660px;
+}
+
+.skills-flex-box {
     display: grid;
     grid-template-columns: repeat(auto-fill, 280px);
-    grid-template-rows: repeat(3, 250px);
+    grid-template-rows: repeat(auto-fill, 250px);
     justify-content: center;
     gap: 20px;
 }
 
 .card {
+    height: 230px;
     padding: 10px 10px;
     border: 1px solid black;
     border-radius: 15px;
@@ -167,16 +171,28 @@ main {
     margin-top: 15px;
 }
 
+@media (max-width:900px){
+    #skills {
+        min-height: 920px;
+    }
+}
+
+/* portfolio section */
+
+#portfolio {
+    min-height: 920px;
+}
 
 .flex-box-large {
     display: grid;
     grid-template-columns: repeat(auto-fill, 400px);
-    grid-template-rows: repeat(uto-fill, 380px);
+    grid-template-rows: repeat(auto-fill, 380px);
     justify-content: center;
     gap: 40px;
 }
 
 .card-large {
+    height: 380px;
     padding: 0;
     border: 1px solid black;
     overflow: hidden;
@@ -204,25 +220,13 @@ main {
     vertical-align: bottom;
 }
 
-.content-box {
-    padding: 10px 10px;
-    border: 1px solid black;
-    background-color: aqua;
+@media (max-width:860px){
+    #portfolio {
+        min-height: 1800px;
+    }
 }
 
-
-#skills, #contacts {
-    background-color: var(--bg-light-color);
-
-}
-
-.top-line {
-    width: 100%;
-    max-width: 150px;
-    min-height: 8px;
-    margin-bottom: 24px;
-    background-color: var(--text-color);
-}
+/* contact section */
 
 #contact .content {
     display: flex;
@@ -231,19 +235,18 @@ main {
     align-items: center;
 }
 
-.contact-links {
+.contact-block {
     display: flex;
     flex-wrap: wrap;
 }
 
 .contact-link {
-
     padding: 20px;
     transition: transform 0.3s;
+    max-width: 100%;
 }
 
 .contact-link:hover {
-    
-    
     transform: translateY(5px);
 }
+
