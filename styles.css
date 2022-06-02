@@ -221,7 +221,7 @@ section {
 }
 
 @media (max-width:860px){
-    #portfolio {
+    #projects {
         min-height: 1800px;
     }
 }
